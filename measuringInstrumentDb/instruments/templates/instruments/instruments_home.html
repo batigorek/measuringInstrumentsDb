@@ -1,0 +1,20 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Таблицы
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Доступные таблицы</h1>
+        {% if instruments %}
+        {% for el in instruments %}
+            <div class="alert alert-warning">
+                <h3>{{ el.title }}</h3>
+                <p>{{ el.anons }}</p>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p>Нет данных о таблицах</p>
+        {% endif %}
+    </div>
+{% endblock %}

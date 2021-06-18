@@ -1,0 +1,25 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Таблицы
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Инструменты</h1>
+        {% if instruments %}
+        {% for el in instruments %}
+            <div class="alert alert-warning">
+                <h3><b>Инвентарный номер:</b> {{ el.inv_number }}</h3>
+                <p><b>Заводской номер:</b> {{ el.fac_number }}</p>
+                <p><b>Точность:</b> {{ el.accuracy }}</p>
+                <p><b>Предел измерения:</b> {{ el.meas_limit }}</p>
+                <p><b>Дата последней проверки:</b> {{ el.last_date_check }}</p>
+                <p><b>Дата следующей проверки:</b> {{ el.next_date_check }}</p>
+                <p><b>Фамилия И. О. проверяющего:</b> {{ el.checked }}</p>
+            </div>
+        {% endfor %}
+        {% else %}
+            <p>Нет данных о таблицах</p>
+        {% endif %}
+    </div>
+{% endblock %}
