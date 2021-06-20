@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Добавление элемента таблицы
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Доступные таблицы</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            {{ form.inv_number }}<br>
+            {{ form.fac_number }}<br>
+            {{ form.accuracy }}<br>
+            {{ form.meas_limit }}<br>
+            {{ form.last_date_check }}<br>
+            {{ form.next_date_check }}<br>
+            {{ form.checked }}<br>
+            <span>{{ error }}</span>
+            <button class="btn-success" type="submit">Сохранить</button>
+        </form>
+    </div>
+{% endblock %}

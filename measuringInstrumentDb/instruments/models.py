@@ -31,6 +31,9 @@ class Calipers(models.Model):
     def __str__(self):
         return self.inv_number
 
+    def get_absolute_url(self):
+        return f'/instruments/calipers'
+
     class Meta:
         verbose_name = 'Штангенциркуль'
         verbose_name_plural = 'Штангенциркули'
@@ -46,6 +49,9 @@ class Micrometers(models.Model):
 
     def __str__(self):
         return self.inv_number
+
+    def get_absolute_url(self):
+        return f'/instruments/calipers'
 
     class Meta:
         verbose_name = 'Микрометр'

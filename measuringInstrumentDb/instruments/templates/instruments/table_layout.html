@@ -6,6 +6,11 @@
 {% block content %}
     <div class="features">
         <h1>Инструменты</h1>
+        {% if title == "Микрометры" %}
+        <a href="{% url 'create_micrometers' %}"><button class="btn btn-warning">Добавить элемент</button></a>
+        {% else %}
+        <a href="{% url 'create_calipers' %}"><button class="btn btn-warning">Добавить элемент</button></a>
+        {% endif %}
         {% if instruments %}
         {% for el in instruments %}
             <div class="alert alert-warning">
@@ -16,6 +21,13 @@
                 <p><b>Дата последней проверки:</b> {{ el.last_date_check }}</p>
                 <p><b>Дата следующей проверки:</b> {{ el.next_date_check }}</p>
                 <p><b>Фамилия И. О. проверяющего:</b> {{ el.checked }}</p>
+                {% if title == "Микрометры" %}
+                <a href="{% url 'micrometers-update' el.id %}"><button class="btn btn-warning">Изменить</button></a>
+                <a href="{% url 'micrometers-delete' el.id %}"><button class="btn btn-danger">Удалить</button></a>
+                {% else %}
+                <a href="{% url 'calipers-update' el.id %}"><button class="btn btn-warning">Изменить</button></a>
+                <a href="{% url 'calipers-delete' el.id %}"><button class="btn btn-danger">Удалить</button></a>
+                {% endif %}
             </div>
         {% endfor %}
         {% else %}

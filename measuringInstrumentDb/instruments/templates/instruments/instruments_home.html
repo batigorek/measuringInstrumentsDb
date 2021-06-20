@@ -11,6 +11,11 @@
             <div class="alert alert-warning">
                 <h3>{{ el.title }}</h3>
                 <p>{{ el.anons }}</p>
+                {% if el.title == "Микрометры" %}
+                <a href="{% url 'micrometers' %}"><button class="btn btn-warning">К таблице</button></a>
+                {% else %}
+                <a href="{% url 'calipers' %}"><button class="btn btn-warning">К таблице</button></a>
+                {% endif %}
             </div>
         {% endfor %}
         {% else %}

@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Удаление элемента таблицы
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Удалить элемент таблицы?</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <button class="btn-success" type="submit">Удалить</button>
+        </form>
+    </div>
+{% endblock %}
